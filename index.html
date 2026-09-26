@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>John Carva — Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #10151F;
+    --surface: #172032;
+    --line: #2B3548;
+    --ink: #EBEFF5;
+    --ink-dim: #93A0B8;
+    --accent: #D2A94E;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #EEF1F6;
+      --surface: #FFFFFF;
+      --line: #D4DAE5;
+      --ink: #141A24;
+      --ink-dim: #5B6779;
+      --accent: #A67D2A;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #EEF1F6;
+    --surface: #FFFFFF;
+    --line: #D4DAE5;
+    --ink: #141A24;
+    --ink-dim: #5B6779;
+    --accent: #A67D2A;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 800px; margin: 0 auto; padding: 0 28px; }
+
+  header.hero { padding: 96px 0 72px; }
+  .kicker { font-size: 14px; color: var(--accent); margin: 0 0 18px; }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(38px, 7.5vw, 60px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 22px;
+  }
+  .bio { font-size: 18px; line-height: 1.65; color: var(--ink-dim); max-width: 54ch; margin: 0; }
+
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 26px; margin: 0 0 36px; }
+
+  .project {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 26px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .project:last-child { border-bottom: none; }
+  .thumb {
+    width: 140px;
+    height: 140px;
+    border-radius: 4px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .thumb svg { width: 78%; height: 78%; }
+  .project-top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .project-name { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 500; margin: 0; }
+  .project-type { font-size: 13px; color: var(--ink-dim); white-space: nowrap; }
+  .project-desc { margin: 10px 0 0; color: var(--ink-dim); font-size: 15px; line-height: 1.6; max-width: 58ch; }
+  .project-foot { display: flex; align-items: baseline; gap: 14px; margin-top: 16px; flex-wrap: wrap; }
+  .project-link {
+    font-size: 14px;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+  }
+  .project-url { font-size: 13px; color: var(--ink-dim); word-break: break-all; }
+
+  .skills-group + .skills-group { margin-top: 28px; }
+  .skills-label { font-size: 13px; color: var(--ink-dim); margin: 0 0 12px; }
+  .skills { display: flex; flex-wrap: wrap; gap: 10px 12px; }
+  .skill { font-size: 14px; padding: 7px 14px; border: 1px solid var(--line); border-radius: 3px; color: var(--ink-dim); background: var(--surface); }
+
+  footer { padding: 56px 0 80px; border-top: 1px solid var(--line); }
+  .contact-name { font-family: 'Fraunces', serif; font-size: 22px; margin: 0 0 16px; }
+  .contact-links { display: flex; flex-wrap: wrap; gap: 8px 22px; padding: 0; margin: 0; list-style: none; }
+  .contact-links a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); font-size: 15px; padding-bottom: 1px; }
+  .contact-sub { font-size: 12px; color: var(--ink-dim); margin: 2px 0 0; }
+
+  @media (max-width: 560px) {
+    header.hero { padding: 64px 0 48px; }
+    .project { grid-template-columns: 1fr; }
+    .thumb { width: 96px; height: 96px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <p class="kicker">Portfolio</p>
+      <h1>John Carva<br>builds thoughtful web products.</h1>
+      <p class="bio">Software developer specializing in clean, dependable web applications — from e-commerce platforms to booking and listing sites for hospitality and real estate. Comfortable across the stack, from interface to backend logic.</p>
+    </header>
+
+    <section id="work">
+      <h2>Selected Work</h2>
+
+      <div class="project">
+        <div class="thumb">
+          <svg viewBox="0 0 100 100" fill="none">
+            <path d="M32 22 L40 15 H60 L68 22 L78 30 L70 40 L64 35 V82 H36 V35 L30 40 L22 30 Z" stroke="var(--accent)" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M40 15 C40 24 46 27 50 27 C54 27 60 24 60 15" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="43" y1="45" x2="57" y2="45" stroke="var(--ink-dim)" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="43" y1="55" x2="57" y2="55" stroke="var(--ink-dim)" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="43" y1="65" x2="52" y2="65" stroke="var(--ink-dim)" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="project-top">
+            <h3 class="project-name">Noire Store</h3>
+            <span class="project-type">Fashion e-commerce</span>
+          </div>
+          <p class="project-desc">A fashion retail site built around a minimal, image-led layout so garments stay the visual focus. Includes product browsing, category navigation, and a responsive layout tuned for mobile shopping.</p>
+          <div class="project-foot">
+            <a class="project-link" href="https://noire-store-sand.vercel.app/" target="_blank" rel="noopener">View live site</a>
+            <span class="project-url">noire-store-sand.vercel.app</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="thumb">
+          <svg viewBox="0 0 100 100" fill="none">
+            <ellipse cx="50" cy="52" rx="30" ry="9" stroke="var(--accent)" stroke-width="1.6"/>
+            <ellipse cx="50" cy="52" rx="14" ry="4.5" stroke="var(--ink-dim)" stroke-width="1.1"/>
+            <path d="M20 52 V64 C20 69.5 33.4 74 50 74 C66.6 74 80 69.5 80 64 V52" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="50" y1="20" x2="50" y2="38" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M42 16 V30 M58 16 V30" stroke="var(--ink-dim)" stroke-width="1.1" stroke-linecap="round"/>
+            <path d="M42 16 C42 24 50 26 50 26" stroke="var(--ink-dim)" stroke-width="1.1" stroke-linecap="round"/>
+            <path d="M58 16 C58 24 50 26 50 26" stroke="var(--ink-dim)" stroke-width="1.1" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="project-top">
+            <h3 class="project-name">Atelier Restaurant</h3>
+            <span class="project-type">Hospitality</span>
+          </div>
+          <p class="project-desc">A brand site for a restaurant, presenting the menu, atmosphere and story with an editorial tone. Structured for easy content updates as the menu changes, with a design that feels as considered as the dining experience.</p>
+          <div class="project-foot">
+            <a class="project-link" href="https://atelier-restaurant-liart.vercel.app/" target="_blank" rel="noopener">View live site</a>
+            <span class="project-url">atelier-restaurant-liart.vercel.app</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="thumb">
+          <svg viewBox="0 0 100 100" fill="none">
+            <path d="M25 82 V38 L50 20 L75 38 V82" stroke="var(--accent)" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M18 82 H82" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/>
+            <rect x="43" y="60" width="14" height="22" stroke="var(--ink-dim)" stroke-width="1.2" stroke-linejoin="round"/>
+            <rect x="32" y="46" width="9" height="9" stroke="var(--ink-dim)" stroke-width="1.1"/>
+            <rect x="59" y="46" width="9" height="9" stroke="var(--ink-dim)" stroke-width="1.1"/>
+            <path d="M12 82 C16 76 20 76 24 82 M76 82 C80 76 84 76 88 82" stroke="var(--ink-dim)" stroke-width="1.1" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="project-top">
+            <h3 class="project-name">Lumen Estates</h3>
+            <span class="project-type">Real estate</span>
+          </div>
+          <p class="project-desc">A listings platform for a real estate agency, organized so properties are easy to browse and compare. Built with clear information hierarchy and direct contact paths to turn interest into inquiries.</p>
+          <div class="project-foot">
+            <a class="project-link" href="https://lumen-estates-ashen.vercel.app/" target="_blank" rel="noopener">View live site</a>
+            <span class="project-url">lumen-estates-ashen.vercel.app</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="thumb">
+          <svg viewBox="0 0 100 100" fill="none">
+            <path d="M28 34 H72 L69 78 H31 L28 34 Z" stroke="var(--accent)" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M37 34 V27 C37 20.4 42.8 15 50 15 C57.2 15 63 20.4 63 27 V34" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="50" cy="52" r="9" stroke="var(--ink-dim)" stroke-width="1.1"/>
+            <path d="M46 52 L49 55 L55 48" stroke="var(--ink-dim)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="project-top">
+            <h3 class="project-name">Vera Shop</h3>
+            <span class="project-type">Online store</span>
+          </div>
+          <p class="project-desc">A full online store with a product catalog, cart flow and checkout path designed with conversion in mind. Focused on a fast, uncluttered shopping experience from browsing to purchase.</p>
+          <div class="project-foot">
+            <a class="project-link" href="https://vera-shopjc.vercel.app/index.html" target="_blank" rel="noopener">View live site</a>
+            <span class="project-url">vera-shopjc.vercel.app</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills-group">
+        <p class="skills-label">Web development</p>
+        <div class="skills">
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">React</span>
+          <span class="skill">Next.js</span>
+          <span class="skill">PHP</span>
+          <span class="skill">Vercel</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <p class="skills-label">Programming languages</p>
+        <div class="skills">
+          <span class="skill">Python</span>
+          <span class="skill">Java</span>
+          <span class="skill">C</span>
+          <span class="skill">C#</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p class="contact-name">Let's talk about your project.</p>
+      <ul class="contact-links">
+        <li>
+          <a href="mailto:johncarva999@gmail.com">johncarva999@gmail.com</a>
+        </li>
+        <li>
+          <a href="https://wa.me/258872478537" target="_blank" rel="noopener">+258 87 247 8537</a>
+          <p class="contact-sub">WhatsApp only</p>
+        </li>
+      </ul>
+    </footer>
+  </div>
+</body>
+  </html>
